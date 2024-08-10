@@ -157,7 +157,7 @@ okButton.addEventListener('click', ()=>{
         hidePopUp();
     }
     else{
-        alert('Please enter a weight between 1 and 60 kg');
+        alert('Please enter a weight between 1 and 50 kg');
         hidePopUp();
     }
 })
