@@ -11,7 +11,10 @@ const minus = document.getElementById("minus");
 const weightIn = document.getElementById("weight");
 const main = document.querySelector(".main-container");
 const popup = document.querySelector(".popupInput");
-
+const popup2 = document.querySelector(".info-popup");
+const datac = document.querySelector(".data-container")
+const weightc = document.querySelector(".weight-container")
+const infoButton = document.getElementById('info')
 
 var currentWeight = parseFloat(weightIn.innerHTML);
 var currentDuration = durationRadio12.checked ? true : false;
@@ -23,8 +26,9 @@ weightIn.addEventListener('click', ()=>{
 
 plus.addEventListener('click', ()=>{
 let value = parseFloat(weightIn.innerHTML);
-   weightIn.innerHTML = (value + 0.1).toFixed(1);
-   updateWeight();
+    if(value < 50)
+        weightIn.innerHTML = (value + 0.1).toFixed(1);
+    updateWeight();
 });
 
 minus.addEventListener('click', ()=>{
@@ -42,6 +46,15 @@ minus.addEventListener('click', ()=>{
         updateWeight();
     })    
 
+infoButton.addEventListener('click',()=>{
+    if(popup2.classList.contains('show')){
+        hideInfo();
+    }
+    else{
+        showInfo();
+    }
+})
+
 function showPopUp(){
     main.classList.add('hide')
     popup.classList.add("show");
@@ -50,6 +63,19 @@ function showPopUp(){
 function hidePopUp(){
     main.classList.add('show')
     popup.classList.remove("show");
+}
+
+function showInfo(){
+    datac.classList.add('hide')
+    weightc.classList.add('hide')
+    popup2.classList.add("show");
+    popup2.style.flexDirection = 'column';
+}
+
+function hideInfo(){
+    datac.classList.remove('hide')
+    weightc.classList.remove('hide')
+    popup2.classList.remove("show");
 }
 
 function updateWeight(){
@@ -125,7 +151,7 @@ const okButton =document.getElementById('ok');
 
 okButton.addEventListener('click', ()=>{
     let weight = parseFloat(popIn.value);
-    if(weight > 0 && weight < 60){
+    if(weight > 0 && weight <= 50){
         weightIn.innerHTML = (weight).toFixed(1);
         updateWeight();
         hidePopUp();

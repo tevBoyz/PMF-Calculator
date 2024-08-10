@@ -9,11 +9,18 @@
   <body>
     <div class="main-container">
       <div class="logo-container">
-        <img src="assets/images/IV.png" alt="Logo" />
-        <div class="title">
-          <span>Pediatric</span>
-          <span>Maintenance Fluid</span>
-          <span>Calculator</span>
+        <div class="nav">
+          <img src="assets/images/IV.png" alt="Logo" />
+          <div class="title">
+            <span>Pediatric</span>
+            <span>Maintenance Fluid</span>
+            <span>Calculator</span>
+          </div>
+        </div>
+        <div class="info">
+          <button class="center" id="info">
+            <img src="assets/images/info.png" alt="info" height="20" />
+          </button>
         </div>
       </div>
       <div class="data-container">
@@ -48,6 +55,37 @@
           <p>kg</p>
         </div>
         <button class="plus" id="plus">+</button>
+      </div>
+      <div class="info-popup hide">
+        <div class="info-bar center">
+          <h2>Information</h2>
+          <button id="close" class="close center">
+            <img
+              src="assets/images/close.png"
+              alt="close"
+              height="30"
+              onclick="hideInfo()"
+            />
+          </button>
+        </div>
+        <div class="information-1 center">
+          <p>D10 = 10% Dextrose</p>
+          <p>D5 = 5% Dextrose</p>
+          <p>D40 = 40% Dextrose</p>
+        </div>
+        <div class="information-2 center">
+          <p>How to prepare D10:</p>
+          <p>D10 = 85% of D5 + 15% of D40</p>
+        </div>
+        <div class="information-3 center">
+          <img src="assets/images/guide1.jpg" alt="guide" height="80" />
+          <p>Click on the weight input for larger values</p>
+        </div>
+        <div class="about center">
+          <p>Developed by:<br /><strong>Dawit Tefera</strong></p>
+          <p>dawit.ttamiru@gmail.com</p>
+          <p>&#169; Copyright 2024</p>
+        </div>
       </div>
     </div>
 
