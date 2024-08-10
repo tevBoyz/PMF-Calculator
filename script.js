@@ -58,6 +58,7 @@ infoButton.addEventListener('click',()=>{
 function showPopUp(){
     main.classList.add('hide')
     popup.classList.add("show");
+    document.getElementById('weightInput').focus();
 }
 
 function hidePopUp(){
