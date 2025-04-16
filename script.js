@@ -19,9 +19,16 @@ const infoButton = document.getElementById('info')
 var currentWeight = parseFloat(weightIn.innerHTML);
 var currentDuration = durationRadio12.checked ? true : false;
 
+const audioSrc = '/assets/audio/tick.mp3';
+const preloadAudio = new Audio(audioSrc);
+preloadAudio.preload = 'auto';
+preloadAudio.load();
+
 weightIn.addEventListener('click', ()=>{
     showPopUp();
     document.getElementById('weightInput').value = currentWeight;
+    const sound = new Audio(audioSrc);
+    sound.play();
 })
 
 plus.addEventListener('click', ()=>{
@@ -29,6 +36,8 @@ let value = parseFloat(weightIn.innerHTML);
     if(value < 50)
         weightIn.innerHTML = (value + 0.1).toFixed(1);
     updateWeight();
+    const sound = new Audio(audioSrc);
+    sound.play();
 });
 
 minus.addEventListener('click', ()=>{
@@ -36,22 +45,32 @@ minus.addEventListener('click', ()=>{
     if(value > 0)
        weightIn.innerHTML = (value - 0.1).toFixed(1);
     updateWeight();
+    const sound = new Audio(audioSrc);
+    sound.play();
     });
 
     durationRadio24.addEventListener('change', ()=>{
         updateWeight();
+        const sound = new Audio(audioSrc);
+    sound.play();
     })    
 
     durationRadio12.addEventListener('click', ()=>{
         updateWeight();
+        const sound = new Audio(audioSrc);
+    sound.play();
     })    
 
 infoButton.addEventListener('click',()=>{
     if(popup2.classList.contains('show')){
         hideInfo();
+        const sound = new Audio(audioSrc);
+    sound.play();
     }
     else{
         showInfo();
+        const sound = new Audio(audioSrc);
+    sound.play();
     }
 })
 
@@ -77,6 +96,8 @@ function hideInfo(){
     datac.classList.remove('hide')
     weightc.classList.remove('hide')
     popup2.classList.remove("show");
+    const sound = new Audio(audioSrc);
+    sound.play();
 }
 
 function updateWeight(){
@@ -156,9 +177,15 @@ okButton.addEventListener('click', ()=>{
         weightIn.innerHTML = (weight).toFixed(1);
         updateWeight();
         hidePopUp();
+        const sound = new Audio(audioSrc);
+    sound.play();
+
     }
     else{
         alert('Please enter a weight between 1 and 50 kg');
         hidePopUp();
+        const sound = new Audio(audioSrc);
+        sound.play();
+
     }
 })
